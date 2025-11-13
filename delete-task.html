@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Task Only</title>
+  <style>
+    body {
+      font-family: Poppins, sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding-top: 80px;
+    }
+
+    .todo-container {
+      background: white;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      background: #f9fafb;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    button:hover {
+      background: #dc2626;
+    }
+  </style>
+</head>
+<body>
+  <div class="todo-container">
+    <h1>Delete Task</h1>
+    <ul id="taskList">
+      <li>Read a book <button class="deleteBtn">Delete</button></li>
+      <li>Go to the gym <button class="deleteBtn">Delete</button></li>
+      <li>Study JavaScript <button class="deleteBtn">Delete</button></li>
+    </ul>
+  </div>
+
+  <script>
+    const deleteButtons = document.querySelectorAll(".deleteBtn");
+
+    deleteButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.parentElement.remove();
+      });
+    });
+  </script>
+</body>
+</html>
