@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Task Only</title>
+  <style>
+    body {
+      font-family: Poppins, sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding-top: 80px;
+    }
+
+    .todo-container {
+      background: white;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      background: #f9fafb;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="todo-container">
+    <h1>Add Task</h1>
+    <div class="input-row">
+      <input type="text" id="taskInput" placeholder="Enter a new task..." />
+      <button id="addBtn">Add</button>
+    </div>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    const input = document.getElementById("taskInput");
+    const addBtn = document.getElementById("addBtn");
+    const taskList = document.getElementById("taskList");
+
+    // Function to add task
+    function addTask() {
+      const text = input.value.trim();
+      if (text === "") return; // ignore empty input
+      const li = document.createElement("li");
+      li.textContent = text;
+      taskList.appendChild(li);
+      input.value = ""; // clear input
+    }
+
+    // Add button event
+    addBtn.addEventListener("click", addTask);
+
+    // Allow pressing Enter key to add
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") addTask();
+    });
+  </script>
+</body>
+</html>
